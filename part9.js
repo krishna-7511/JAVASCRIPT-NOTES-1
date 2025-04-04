@@ -142,3 +142,168 @@ document.querySelector("body").append(h1);
 let p = document.createElement("p");
 p.innerHTML = "Apna College <b>Delta</b> Practice";
 document.querySelector("body").append(p);
+
+
+
+// newly added from in detail step by step
+
+
+
+//part9:DOM MANIPULATION
+
+console.dir(document);
+all property
+console.dir(document.all);
+console.dir(document.all[8].innerText = 'IronMan') ;
+
+
+let h2s = document.getElementsByTagName("h2");
+h2s[0].innerText = "Teeth";
+  (or)
+console.dir(document.all[10].innerHTML="Seeth");
+
+
+classname:
+let smallImages=document.getElementsByClassName("oldImg");
+for(let i=0;i<smallImages.length;i++){
+    smallImages[i].src="assets/spiderman_img.png";
+  console.log(`value of image no. #{i} is changed`)
+ }
+  
+
+let paragraphs = document.getElementsByTagName("p");
+
+ //Loop through and log each paragraph
+for (let i = 0; i < paragraphs.length; i++) {
+    console.log(paragraphs[i].innerText="abc");
+}
+
+
+//get and set attributes
+
+let img=document.querySelector("img");
+
+img.getAttribute("id");
+
+img.setAttribute('id','spidermanImg');   // set attributes accepts only single value 
+
+ img.setAttribute('src',"assets/creation_3.jpeg" )
+
+
+//  classList property
+
+  let heading=document.querySelector('h1');
+
+ heading.classList;
+
+heading.classList.add("red");
+
+heading.classList.remove("green");
+heading.classList.contains('green');
+heading.classList.toggle('green');
+
+let box=document.querySelector('.box');
+
+box.classList.add("yellowbg");
+
+
+
+// navigation on page 
+
+let h4=document.querySelector('h4');
+
+h4.parentElement;
+
+h4.children;
+
+let box=document.querySelector('.box');
+
+box.children;
+
+box.childElementCount;
+
+let ul=document.querySelector('ul');
+
+ul.parentElement;
+
+ul.childElementCount;
+
+ul.children;
+
+ul.children[0];
+
+ul.children[2].previousElementSibling;
+
+let img=document.querySelector("img");
+
+img.previousElementSibling;
+
+img.previousElementSibling.style.color="green";
+
+
+
+// Adding Elements on page
+let newpara=document.createElement('p');
+
+let newp=document.createElement('p');
+
+console.dir(newp);
+
+
+newp.innerText="Hi IAm a new p";
+
+let body=document.querySelector('body');
+
+body.appendChild(newp);
+
+let box=document.querySelector('.box');
+
+box.appendChild(newp);
+
+let btn=document.createElement('button');
+
+console.dir(btn);
+
+btn.innerText="Click me!";
+
+box.appendChild(btn);
+
+
+newp.append("this is new text");
+
+
+newp.append(btn);
+
+newp.append("do not click this button");
+
+
+box.prepend(newp);
+
+let btn=document.createElement('button');
+
+btn.innerHTML="NEW BUTON!!";
+
+let p =document.querySelector('p');
+
+p.insertAdjacentElement('beforebegin', btn);
+
+p.insertAdjacentElement('afterbegin', btn);
+
+p.insertAdjacentElement('beforeend', btn);
+
+p.insertAdjacentElement('afterend', btn);
+
+
+//removing Eleemnets
+
+let body=document.querySelector('body');
+
+body.removeChild(btn);
+
+p.insertAdjacentElement('afterend', btn);
+
+btn.remove();
+
+p.remove();   // to remove paragraph
+
+body.remove();  // to remove body
