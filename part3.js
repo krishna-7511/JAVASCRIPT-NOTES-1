@@ -110,6 +110,15 @@ console.log();
 console.log(months .sort());
 
 
+//Feature             slice()	                                     splice()
+Purpose               Copies part of an array 	         Modifies the array directly (add, remove, replace)
+                     (without modifying it)
+Returns	             New array with selected elements	 Array of removed elements
+Modifies Original?	 ❌ No	                           ✅ Yes
+Arguments	        (start, end)	                    (start, deleteCount, item1, item2, ...)
+Usage Example	     arr.slice(1, 3)	                 arr.splice(1, 2, "New")
+
+
 //Practice Ques
 months = ['January','july','march','august'];
 months.splice(0,2,'july','june');

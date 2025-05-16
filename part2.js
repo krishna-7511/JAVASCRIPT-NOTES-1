@@ -169,6 +169,43 @@ else{
     console.log("it has false value");
 }
 
+Falsy Values in JavaScript:
+
+JavaScript has only 7 falsy values:
+
+false - The boolean value false.
+
+0 - The number zero.
+
+-0 - The negative number zero.
+
+"" or '' or `` (Empty String) - A string with no characters.
+
+null - Represents the absence of value.
+
+undefined - A variable that has been declared but not assigned a value.
+
+NaN - Not a number.
+
+
+Truthy Values in JavaScript:
+
+Any value that is not falsy is considered truthy.
+
+Examples of truthy values:
+
+true
+
+"Hello" (any non-empty string)
+
+42 (any non-zero number)
+
+[] (an empty array)
+
+{} (an empty object)
+
+function() {} (a function)
+
 // PRACTICE QUESTION(2)
 Qs. Use switch statement to print the day of the week using a number variable 'day' with
 values 1 to 7.

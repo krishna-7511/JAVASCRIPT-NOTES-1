@@ -1,4 +1,4 @@
-Function initialize
+//Function initialize
 function hello() {
     console.log("Hello");
   }
@@ -9,7 +9,7 @@ function hello() {
 
 
   function printName(){
-    console.log("gopi krishna");
+    console.log("krishna");
 }
 printName();
 
@@ -22,16 +22,18 @@ function print1to5(){
 print1to5();
 
 
-function isAdult(age) {
-   let  age =13;
+function isAdult(age = 13) {
     if (age >= 18) {
-        console.log("Adult.")
+        console.log("Adult.");
     } else {
-        console.log("Not Adult.")
+        console.log("Not Adult.");
     }
 }
 
-isAdult();
+// Test Cases
+isAdult(20); // Output: Adult.
+isAdult(15); // Output: Not Adult.
+isAdult();   // Output: Not Adult. (default value of 13 is used)
 
 
 
@@ -82,7 +84,7 @@ averageOf3 (3,3,3)
 
 
 
-practice question 4 (Print table of given number)
+//practice question 4 (Print table of given number)
 
 function printTable(n) {
     for (let i = n; i <= n * 10; i += n) {
@@ -94,7 +96,7 @@ function printTable(n) {
 
 
 
-  return keyword
+  //return keyword
 function sun(a, b) {
     return a + b;
   }
@@ -141,7 +143,7 @@ console.log(concat(str));
 
 
 
-Example of Block Scope
+//Example of Block Scope
 javascript
 
 {
@@ -160,13 +162,14 @@ console.log(b); // Error: b is not defined
 console.log(c); // 30 (Accessible outside the block)
 Here, c is accessible outside the block because var does not have block scope.
 
-Block Scope in Loops
+//Block Scope in Loops
 
 for (let i = 0; i < 3; i++) {
     console.log(i); // 0, 1, 2
 }
 console.log(i); // Error: i is not defined
-With let, the variable i is only available inside the loop. Using var instead would make i accessible outside the loop.
+With let, the variable i is only available inside the loop.
+Using var instead would make i accessible outside the loop.
 
 
 if (true) {
@@ -177,20 +180,22 @@ console.log(x); // Error: x is not defined
 
 
 
-Lexical scope
-function outerFun(){
-    let x=5;
-    let y=6;
-    function innerFun(){
+//Lexical scope
+function outerFun() {
+    let x = 5;
+    let y = 6;
+    function innerFun() {
         console.log(x);
     }
     innerFun();
 }
 
+outerFun();
+
 --------------------------------------------
 
 
-P Qs 7
+//P Qs 7
 let greet  = "hello";
 
 function changeGreet(){
@@ -205,9 +210,7 @@ changeGreet();
 
 
 
-
-let name = "krishna";
-
+//anonymous function expression.
 let sum = function(a,b,c){
     return a+b+c;
 }
@@ -217,8 +220,42 @@ let hello = function(){
 }
 
 
+/*
+    Explanation:
+let keyword:
 
-Higher order function
+It declares a variable named sum.
+
+let allows block-scoped variable declaration.
+
+Anonymous Function:
+
+The function is defined without a name (function(a, b, c) {...}).
+
+This type of function is called an anonymous function.
+
+Function Expression:
+
+This is a function expression, where a function is assigned to a variable (sum).
+
+Unlike function declarations, function expressions are not hoisted. This means they can only be used after they are defined.
+
+Variable Name (sum):
+
+The variable sum becomes the function name because it stores the anonymous function.
+
+You can call this function using sum(1, 2, 3).
+
+In Summary:
+sum is the name of the variable that stores the function.
+
+The function itself is anonymous because it does not have its own name.
+
+This is called an anonymous function expression.
+*/
+
+
+//Higher order function
 function multipleGreet(func, count){
     for(let i=1; i<=count; i++){
         func();
@@ -232,7 +269,7 @@ multipleGreet(greet, 5);
 
 
 
-Returns a function
+//Returns a function
 function oddOrEvenFactory(request){
     if(request == "odd"){
         let odd = function(n) {
@@ -259,8 +296,8 @@ let request = "odd"; // even
 
 
 
-methods
-const calcalator = {
+//methods
+const calculator = {
     num:55,
     add : function(a, b){
         return a + b;
@@ -272,11 +309,11 @@ const calcalator = {
         return a * b;
     }
 };
-console.log(calcalator.add(5,6));
-console.log(calcalator.mul(5,7));
+console.log(calculator.add(5,6));
+console.log(calculator.mul(5,7));
 
 
-METHODS SHORTHAND IN JAVASCRIPT
+//METHODS SHORTHAND IN JAVASCRIPT
 
 const calc = {
     add(a, b) {
@@ -287,6 +324,27 @@ const calc = {
     }
 }
 
+ //Print the Entire Object:
+console.log(calc);
+//Print a Specific Method Result
+console.log(calc.add(5, 3)); // Output: 8
+console.log(calc.sub(5, 3)); // Output: 2
+//Print All Methods with Their Definitions:
+console.log(calc.add.toString());
+console.log(calc.sub.toString());
+
+
+//Print the Code Directly (as a String):
+console.log(`
+const calc = {
+    add(a, b) {
+        return a + b;
+    },
+    sub(a, b) {
+        return a - b;
+    }
+}`);
+
 
 Ans 1:
 let arr = [8, 9, 10, 1, 2, 3, 4, 5, 6, 7];
@@ -295,71 +353,79 @@ let num = 5;
 function getElements(arr, num) {
 for (let i = 0; i < arr.length; i++) {
 if (arr[i] > num) {
-console.log(arr[i]);g
+console.log(arr[i]);
 }
 }
 }
 getElements(arr, num);
 
 
-Ans 2:
+//Ans 2:
 let str = "abcdabcdefgggh";
-//function to get String with all unique elements
+
+// Function to get a string with all unique elements
 function getUnique(str) {
-let ans = "";
-for (let i = 0; i < str.length; i++) {
-    let currChar = str[i];
-    if (ans.indexOf(currChar) == -1) {
-    //if current character is not added, then add it in
-    ans.
-    //Otherwise it is a duplicate.
-    ans += currChar;
-    }
+    let ans = "";
+    for (let i = 0; i < str.length; i++) {
+        let currChar = str[i];
+        // If current character is not added, then add it in
+        if (ans.indexOf(currChar) === -1) {
+            ans += currChar;
+        }
     }
     return ans;
-    }
-    getUnique(str);
+}
+
+console.log(getUnique(str)); // Output: "abcdefgh"
 
 
-Ans 3
-let country = ["Australia", "Germany", "United States of
-America"];
+//Ans 3
+let country = ["Australia", "Germany", "United States of America"];
+
 function longestName(country) {
-let ansIdx = 0;
-for (let i = 0; i < country.length; i++) {
-let ansLen = country[ansIdx].length;
-let currLen = country[i].length;
-if (currLen > ansLen) {
-ansIdx = i;
+  let ansIdx = 0;
+  let ansLen = country[ansIdx].length; // Initialize ansLen outside the loop
+
+  for (let i = 1; i < country.length; i++) { // Start from index 1 to avoid redundant comparison
+    let currLen = country[i].length;
+    if (currLen > ansLen) {
+      ansIdx = i;
+      ansLen = currLen; // Update ansLen with the new longest length
+    }
+  }
+
+  return country[ansIdx];
 }
-}
-return country[ansIdx];
-}
-longestName(country);
+
+console.log(longestName(country));
 
 
 
-Ans 4
+
+//Ans 4
 let str = "apnacollege";
+
 function countVowels(str) {
-let count = 0;
-for (let i = 0; i < str.length; i++) {
-if (
-str.charAt(i) == "a" ||
-str.charAt(i) == "e" ||
-str.charAt(i) == "i" ||
-str.charAt(i) == "o" ||
-str.charAt(i) == "u"
-) {
-count++;
-}
-}
-return count;
-}
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (
+      str.charAt(i) == "a" ||
+      str.charAt(i) == "e" ||
+      str.charAt(i) == "i" ||
+      str.charAt(i) == "o" ||
+      str.charAt(i) == "u"
+    ) {
+      count++;
+    }
+  }
+  return count;
+} // <-- missing closing brace here
+
+console.log(countVowels(str)); // This will output 5
 
 
 
-Ans 5
+//Ans 5
 let start = 100;
 let end = 200;
 function generateRandom(start, end) {

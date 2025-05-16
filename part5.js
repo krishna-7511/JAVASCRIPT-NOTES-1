@@ -1,7 +1,12 @@
 let delhi = {
-    latitude:'27.7041° N',
-    longitude:'77.1025° E'
+    latitude: '27.7041° N',
+    longitude: '77.1025° E'
 };
+
+// Printing the values
+console.log("Latitude:", delhi.latitude);
+console.log("Longitude:", delhi.longitude);
+
 
 const student = {
     name:'Prajwal Gandhi',
@@ -9,19 +14,41 @@ const student = {
     marks: [94.5,84.5]
 };
 
+console.log(student);
+console.log("Name:", student.name);
+console.log("Age:", student.age);
+console.log("Marks:", student.marks);
+
+
 
  Add/Update/Delete literals
 student.city  = 'Mumbai';
 student.gender = "Male";
 delete student.marks;
 
-const post={
+// Initial Object
+const post = {
     username: "@gopikrishna",
     content: "This is my #firstPost",
-    likes: 150,                              //in console post["content"]  or post.content;
+    likes: 150,
     repost: 5,
     tags: ["@apnacollege","@delta"]
 };
+
+// 1. Adding Fields
+post.comments = 20;
+post["shares"] = 10;
+
+// 2. Updating Fields
+post.likes = 200;
+post["repost"] = 10;
+
+// 3. Deleting a Field
+delete post.shares;
+
+// Displaying Final Object
+console.log(post);
+
 
 
 const obj = {
@@ -32,6 +59,21 @@ const obj = {
     undefined : "e"
 };
 
+console.log(obj);
+
+//Using Object.keys() to list all keys
+console.log("Keys:", Object.keys(obj));
+//Using Object.values() to list all values
+console.log("Values:", Object.values(obj));
+
+// using for loop to print
+for (const key in obj) {
+    console.log(`Key: ${key}, Value: ${obj[key]}`);
+}
+
+
+
+
 
 const student = {
     name : "krishna",
@@ -40,15 +82,16 @@ const student = {
     city : "kolkata"
 };
 
-updating city
+//updating city
  student.city="Mumbai";
-deleting a value of a  key
+//deleting a value of a  key
 delete student.rollno;
-adding value
+//adding value
 student.gender="male";
+console.log(student);
 
 
-objects of objects
+//objects of objects
 const classInfo = {
     aman: {
         grade: "A+",
@@ -60,9 +103,31 @@ const classInfo = {
     },
     shraddha: {
         grade: "B+",
-        city: "Mumbai"     //classInfo.aman lassInfo.aman.city
+        city: "Mumbai"     //classInfo.aman classInfo.aman.city
     }
 }
+
+console.log(classInfo);
+//  Accessing Individual Properties
+console.log(classInfo.aman.grade);   // Output: A+
+console.log(classInfo.aman.city);    // Output: Delhi
+
+console.log(classInfo.piyush.grade); // Output: A
+console.log(classInfo.piyush.city);  // Output: Dehradun
+
+console.log(classInfo.shraddha.grade); // Output: B+
+console.log(classInfo.shraddha.city);  // Output: Mumbai
+
+//Using Bracket Notation
+console.log(classInfo["aman"]["grade"]);   // Output: A+
+console.log(classInfo["aman"]["city"]);    // Output: Delhi
+
+console.log(classInfo["piyush"]["grade"]); // Output: A
+console.log(classInfo["piyush"]["city"]);  // Output: Dehradun
+
+console.log(classInfo["shraddha"]["grade"]); // Output: B+
+console.log(classInfo["shraddha"]["city"]);  // Output: Mumbai
+
 
 // Arrays of Objects
 const classInfo1 = [
@@ -78,19 +143,43 @@ const classInfo1 = [
     }
 ];
 
+console.log(classInfo1);
+// Use console.table() to display it as a formatted table in the browser’s developer console:
+console.table(classInfo1);
 
-MATH OBJECT IN JAVASCRIPT
 
-Math Object Properties
+
+//MATH OBJECT IN JAVASCRIPT
+
+//Math Object Properties
 
 Math.PI
 Math.E
 
+// Math.PI and Math.E
+// Math.PI is a constant representing the value of π (pi), approximately 3.14159.
+
+// Math.E is a constant representing Euler's number e, approximately 2.71828.
+
+// These are just fixed mathematical constants you can use in calculations.
+
 Methods
 Math.abs( n)
+Math.abs(-5)   // returns 5
+Math.abs(3)    // returns 3
+
 Math.pow( a, b)
-Math.floor( n)       nearest smallest int value
+Math.pow(2, 3)  // 2^3 = 8
+Math.pow(5, 2)  // 5^2 = 25
+
+Math.floor( n)     //  nearest smallest int value
+Math.floor(4.7)   // returns 4
+Math.floor(-5.3)  // returns -6  (because -6 < -5.3)
+
 Math.ceil( n)        nearest largest int value
+Math.ceil(4.2)   // returns 5
+Math.ceil(-5.3)  // returns -5 (because -5 > -5.3)
+
 Math.random()
 
 
