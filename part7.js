@@ -14,7 +14,98 @@ const student = {
 
 function getAvg() {
   console.log(this);
+}  
+
+//What is this in JavaScript?
+The this keyword refers to the object that is executing the current function.
+it means calling function
+
+const person = {
+  name: "Alice",
+  greet() {
+    console.log("Hello, " + this.name);
+  }
+};
+
+person.greet(); // Output: Hello, Alice
+Here, this.name refers to person.name because greet is a method of person.
+
+✅ 2. In a Function (Global Context)
+In a regular function, this refers to the global object (window in browsers or global in Node.js).
+
+function show() {
+  console.log(this);
 }
+
+show(); // In browser: logs `window` object
+In strict mode ('use strict'), this will be undefined.
+
+✅ 3. In Arrow Functions
+Arrow functions do not have their own this. They inherit this from the surrounding scope.
+
+const obj = {
+  name: "Bob",
+  greet: function () {
+    const arrowFunc = () => {
+      console.log(this.name);
+    };
+    arrowFunc();
+  }
+};
+
+obj.greet(); // Output: Bob
+this inside arrowFunc is the same as this inside greet.
+
+✅ 4. In Constructors
+In a constructor function or class, this refers to the new object being created.
+
+function Car(model) {
+  this.model = model;
+}
+
+const myCar = new Car("Tesla");
+console.log(myCar.model); // Output: Tesla
+this.model refers to the property being set on the newly created myCar object.
+
+✅ 5. In Event Handlers
+In an event handler, this refers to the DOM element that received the event.
+
+<button onclick="show()">Click me</button>
+
+<script>
+  function show() {
+    console.log(this); // refers to the <button> element
+  }
+</script>
+✅ 6. Using bind, call, and apply
+You can manually set this using call, apply, or bind.
+
+const person = {
+  name: "Charlie"
+};
+
+function sayHello() {
+  console.log("Hello " + this.name);
+}
+
+sayHello.call(person); // Output: Hello Charlie
+call() calls the function and sets this to person.
+
+✅ 7. In Classes
+this in a class refers to the instance of the class.
+
+class User {
+  constructor(name) {
+    this.name = name;
+  }
+
+  greet() {
+    console.log("Hello " + this.name);
+  }
+}
+
+const user1 = new User("David");
+user1.greet(); // Output: Hello David
 
   
   // try & catch
@@ -37,12 +128,16 @@ function getAvg() {
     console.log(a + b);
   };
   
+  sum(2,5);
+  
   const cube = (a) => {
     console.log(a * a * a);
   };
+
+  cube(5);
   // implicit return
   const mul = (a, b) => a * b;
-
+  console.log(mul(5,10));
 // set Timeout
 console.log("hi there!");
 

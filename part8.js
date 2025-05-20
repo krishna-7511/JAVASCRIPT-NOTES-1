@@ -33,24 +33,64 @@ arr.forEach((student) => {
   console.log(student);
 });
 
+/*
+    let students = [
+  { name: "gopi krishna", age: 18, marks: 97 },
+  { name: "Shraddha", age: 25, marks: 94 },
+  { name: "Manish kumar", age: 26, marks: 99 },
+];
+
+// Calculate GPA
+let gpa = students.map(({ marks }) => marks / 10);
+console.log(gpa); // [9.7, 9.4, 9.9]
+console.log(gpa[0]); // 9.7
+
+// Function to find student property
+const getStudentProperty = (name, property) => {
+  const student = students.find(student => student.name === name);
+  return student ? student[property] : null;
+};
+
+// Get Marks of "Manish kumar"
+console.log(getStudentProperty("Manish kumar", "marks")); // 99
+
+// Get Age of "Manish kumar"
+console.log(getStudentProperty("Manish kumar", "age")); // 26
+ */
+
 // Map
 let num = [1, 2, 3, 4, 5];
 let double = num.map((el) => {
   return el * el;
 });
 
+
+console.log(double);
+
+
 let gpa = students.map((el) => {
   return el.marks / 10;
 });
 
+console.log(gpa);
+
 // fliter
-num = [1, 2, 3, 4, 7, 8, 2, 9, 10, 12, 11];
+let num = [1, 2, 3, 4, 7, 8, 2, 9, 10, 12, 11];
 let ans = num.filter((el) => {
   return el % 2 == 0;
 });
 
+console.log(ans);
+
 // every
 let check = [2,4,6].every((el) => (el % 2 == 0));
+
+// (or)
+// let check = [2,4,6];
+// check.every((el)=>{
+//    console.log(el % 2 == 0);
+// });
+   
 
 // some 
 let check1 = [1,5,3,2].some((num) => (num % 2 == 0));
@@ -60,7 +100,14 @@ let check1 = [1,5,3,2].some((num) => (num % 2 == 0));
 
 // reduce
 [1, 2, 3, 4].reduce((res, el) => res + el);
-// --> 10 (sum of numbers)
+
+//(or) sum of numbers
+
+   [1, 2, 3, 4].reduce((res, el) => {
+    console.log(res + el);
+    return res + el; // Important to return the accumulated value!
+});
+
 let nums = [2, 3, 4, 5, 3, 4, 7, 8, 1, 2];
 
 let result = nums.reduce((max, el) => {
@@ -70,6 +117,7 @@ let result = nums.reduce((max, el) => {
     return max;
   }
 });
+console.log(result);
 
 
 // reduce - Maximum in array.
@@ -136,6 +184,17 @@ const numbers = [3, 1, 7, 2, 9];
 const minValue = Math.min(...numbers);
 console.log(minValue); // Output: 1
 
+
+// What is the spread operator?
+// The spread operator ... takes an iterable (like an array) and expands it into individual elements.
+
+// So ...numbers transforms the array [3, 1, 7, 2, 9] into 3, 1, 7, 2, 9 (individual numbers).
+
+// Therefore, this line effectively becomes:
+
+// const minValue = Math.min(3, 1, 7, 2, 9); internally spread operator (...) changed it as number
+
+
 // -------------------------------------------
 
 
@@ -154,21 +213,28 @@ let data = {
 };
 
 let dataCopy = {...data,id:123};
+console.log(dataCopy);
 
-// rest
-// function sum(...args){
-//     //arguments
-//     for(let i=0; i<args.length; i++){
-//         console.log("you gave us:", args[i]);
-//     }
-// }
-// function min() {
-//     console.log(arguments);
-// }
+// rest parameters
+
+function sum(...args){
+    //arguments
+    for(let i=0; i<args.length; i++){
+        console.log("you gave us:", args[i]);
+    }
+} 
+sum(1,2,3,4);
+
+function min() {
+    console.log(arguments);
+}
+
+console.log(sum(1,2,3));
+
 function sum(...args) {
     return args.reduce((add, el) => add + el);
 }
-
+console.log(sum(4,5,6));
 
 function min(...args) {
     return args.reduce((min, el) => {
@@ -179,6 +245,17 @@ function min(...args) {
         }
     });
 }
+
+console.log(min(4,5,6));
+
+
+function greet(message, ...names) {
+  for (let name of names) {
+    console.log(`${message}, ${name}!`);
+  }
+}
+
+greet("Hello", "Alice", "Bob", "Charlie");
 
 
 // ----------------------------------------------
