@@ -307,3 +307,222 @@ btn.remove();
 p.remove();   // to remove paragraph
 
 body.remove();  // to remove body
+
+
+/*complete DOM
+  
+The DOM (Document Object Model) methods are used in JavaScript to interact with and manipulate the HTML structure of a webpage. These methods help in selecting, modifying, adding, and removing elements from the HTML document.
+
+📘 What is the DOM?
+The DOM is a programming interface for HTML and XML documents. It represents the structure of a web page as a tree of objects (nodes). Using DOM methods, JavaScript can access and change the content, structure, and style of a web page.
+
+✅ Common DOM Methods (With Simple Examples)
+Here is a detailed list of the most commonly used DOM methods:
+
+1. getElementById()
+Description:
+Selects a single element by its id.
+
+
+<p id="demo">Hello</p>
+<script>
+  const element = document.getElementById("demo");
+  element.style.color = "blue";
+</script>
+
+2. getElementsByClassName()
+Description:
+Returns a collection of elements with a specified class name.
+
+
+<p class="greeting">Hi</p>
+<p class="greeting">Hello</p>
+<script>
+  const elements = document.getElementsByClassName("greeting");
+  elements[0].style.color = "red"; // First <p>
+  elements[1].style.color = "green"; // Second <p>
+</script>
+
+3. getElementsByTagName()
+Description:
+Returns a collection of all elements with a specified tag name.
+
+<p>First</p>
+<p>Second</p>
+<script>
+  const paragraphs = document.getElementsByTagName("p");
+  paragraphs[0].style.fontWeight = "bold";
+</script>
+
+4. querySelector()
+Description:
+Returns the first element that matches a CSS selector.
+
+
+<div class="box">Box 1</div>
+<div class="box">Box 2</div>
+<script>
+  const box = document.querySelector(".box"); // Only the first one
+  box.style.backgroundColor = "yellow";
+</script>
+
+5. querySelectorAll()
+Description:
+Returns all elements that match a CSS selector (as a NodeList).
+
+<div class="item">Item 1</div>
+<div class="item">Item 2</div>
+<script>
+  const items = document.querySelectorAll(".item");
+  items.forEach(item => item.style.border = "1px solid black");
+</script>
+
+
+6. createElement()
+Description:
+Creates a new HTML element.
+
+<div id="container"></div>
+<script>
+  const newPara = document.createElement("p");
+  newPara.textContent = "This is a new paragraph!";
+  document.getElementById("container").appendChild(newPara);
+</script>
+
+
+7. appendChild()
+Description:
+Adds a node as the last child of a parent node.
+
+<ul id="myList"></ul>
+<script>
+  const li = document.createElement("li");
+  li.textContent = "List Item";
+  document.getElementById("myList").appendChild(li);
+</script>
+
+
+8. removeChild()
+Description:
+Removes a child node from a parent node.
+
+<ul id="myList">
+  <li id="item">Delete me</li>
+</ul>
+<script>
+  const list = document.getElementById("myList");
+  const item = document.getElementById("item");
+  list.removeChild(item);
+</script>
+
+
+9. replaceChild()
+Description:
+Replaces a child node with another node.
+
+<ul id="myList">
+  <li id="oldItem">Old Item</li>
+</ul>
+<script>
+  const newItem = document.createElement("li");
+  newItem.textContent = "New Item";
+  const list = document.getElementById("myList");
+  const oldItem = document.getElementById("oldItem");
+  list.replaceChild(newItem, oldItem);
+</script>
+
+10. innerHTML
+Description:
+Gets or sets the HTML content inside an element.
+
+<div id="box">Old Content</div>
+<script>
+  document.getElementById("box").innerHTML = "<strong>New Content</strong>";
+</script>
+
+
+11. textContent
+Description:
+Gets or sets the text content (without HTML tags).
+
+<div id="textBox"><b>Hello</b></div>
+<script>
+  document.getElementById("textBox").textContent = "Just Text";
+</script>
+
+12. setAttribute()
+Description:
+Sets the value of an attribute on the specified element.
+
+<img id="myImg" />
+<script>
+  const img = document.getElementById("myImg");
+  img.setAttribute("src", "image.jpg");
+  img.setAttribute("alt", "Image");
+</script>
+
+
+13. getAttribute()
+Description:
+Gets the value of an attribute.
+
+<a id="myLink" href="https://example.com">Visit</a>
+<script>
+  const link = document.getElementById("myLink");
+  console.log(link.getAttribute("href")); // Outputs: https://example.com
+</script>
+
+
+14. removeAttribute()
+Description:
+Removes a specified attribute from an element.
+
+
+<input id="myInput" type="text" value="hello" />
+<script>
+  document.getElementById("myInput").removeAttribute("value");
+</script>
+
+
+15. classList Methods
+add(): Adds a class
+
+remove(): Removes a class
+
+toggle(): Toggles a class on/off
+
+contains(): Checks if a class exists
+
+
+<div id="box" class="red"></div>
+<script>
+  const box = document.getElementById("box");
+  box.classList.add("blue");
+  box.classList.remove("red");
+  box.classList.toggle("hidden");
+  console.log(box.classList.contains("blue")); // true
+</script>
+
+🔚 Summary Table
+
+Method	                            Description
+
+getElementById()	                Select by ID
+getElementsByClassName()	        Select by class (HTMLCollection)
+getElementsByTagName()	            Select by tag (HTMLCollection)
+querySelector()	                    Select first match
+querySelectorAll()	                Select all matches (NodeList)
+createElement()	                    Create an element
+appendChild()	                    Add element to parent
+removeChild()	                    Remove child from parent
+replaceChild()	                    Replace one child with another
+innerHTML	                        Get/set HTML
+textContent	                        Get/set text only
+setAttribute()	                    Set attribute
+getAttribute()	                    Get attribute
+removeAttribute()	                Remove attribute
+classList	                        Manage CSS classes
+
+
+*/
+
